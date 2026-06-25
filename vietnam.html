@@ -402,6 +402,7 @@
       object-fit: cover;
       display: block;
       background: var(--surface-interactive);
+      transition: opacity 0.18s ease;
     }
 
     .dest-image-placeholder {
@@ -871,7 +872,7 @@
       <div class="destinations-layout">
         <ul class="dest-list">
           <li>
-            <a href="#" class="dest-item active">
+            <a href="#" class="dest-item active" data-index="0">
               <div class="dest-info">
                 <div class="dest-name">Бухта Халонг</div>
                 <div class="dest-region">Север · Провинция Куангнинь</div>
@@ -880,7 +881,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="dest-item">
+            <a href="#" class="dest-item" data-index="1">
               <div class="dest-info">
                 <div class="dest-name">Ханой</div>
                 <div class="dest-region">Север · Столица</div>
@@ -889,7 +890,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="dest-item">
+            <a href="#" class="dest-item" data-index="2">
               <div class="dest-info">
                 <div class="dest-name">Шапа</div>
                 <div class="dest-region">Север · Провинция Лаокай</div>
@@ -898,7 +899,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="dest-item">
+            <a href="#" class="dest-item" data-index="3">
               <div class="dest-info">
                 <div class="dest-name">Хойан</div>
                 <div class="dest-region">Центр · Провинция Куангнам</div>
@@ -907,7 +908,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="dest-item">
+            <a href="#" class="dest-item" data-index="4">
               <div class="dest-info">
                 <div class="dest-name">Дананг</div>
                 <div class="dest-region">Центр · Независимый муниципалитет</div>
@@ -916,7 +917,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="dest-item">
+            <a href="#" class="dest-item" data-index="5">
               <div class="dest-info">
                 <div class="dest-name">Хошимин</div>
                 <div class="dest-region">Юг · Финансовый центр</div>
@@ -925,7 +926,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="dest-item">
+            <a href="#" class="dest-item" data-index="6">
               <div class="dest-info">
                 <div class="dest-name">Острова Фукуок</div>
                 <div class="dest-region">Юг · Провинция Кьенжанг</div>
@@ -936,22 +937,81 @@
         </ul>
 
         <div class="dest-preview">
-          <img
-            class="dest-image"
-            src="https://images.unsplash.com/photo-1573408301185-9519f94815a8?w=800&q=80"
-            alt="Бухта Халонг"
-          />
+          <img id="dest-img" class="dest-image" src="" alt="" />
           <div class="dest-caption">
-            <div class="dest-caption-title">Бухта Халонг</div>
-            <p class="dest-caption-text">
-              Около 1 600 известняковых островов и островков поднимаются
-              из изумрудных вод — объект Всемирного наследия ЮНЕСКО
-              и один из самых узнаваемых пейзажей Азии. Лучшее время
-              для визита: октябрь–апрель.
-            </p>
+            <div class="dest-caption-title" id="dest-title"></div>
+            <p class="dest-caption-text" id="dest-text"></p>
           </div>
         </div>
       </div>
+
+      <script>
+        const destinations = [
+          {
+            img: 'https://images.unsplash.com/photo-1573408301185-9519f94815a8?w=800&q=80',
+            title: 'Бухта Халонг',
+            text: 'Около 1 600 известняковых островов поднимаются из изумрудных вод — объект Всемирного наследия ЮНЕСКО и один из самых узнаваемых пейзажей Азии. Лучшее время для визита: октябрь–апрель.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1509030450996-dd1a26dda07a?w=800&q=80',
+            title: 'Ханой',
+            text: 'Столица с 1000-летней историей: древний квартал 36 улиц, озеро Хоан Кием, французская колониальная архитектура и лучшая уличная еда страны. Ворота для знакомства с севером.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80',
+            title: 'Шапа',
+            text: 'Рисовые террасы на крутых склонах, деревни народностей хмонг и зао, туманные утренние рассветы над долиной Мыонг Хоа. Лучшее место для трекинга в Юго-Восточной Азии.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=800&q=80',
+            title: 'Хойан',
+            text: 'Древний торговый город с фонарями, деревянными домами XV века и лучшими портными Вьетнама. Внесён в список ЮНЕСКО. Вечером весь старый город мерцает огнями фонарей над рекой Тхубон.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80',
+            title: 'Дананг',
+            text: 'Современный пляжный город с белоснежным пляжем Мой Кхе, горами Мраморных гор и знаменитым Золотым мостом на руках гиганта. Идеальная база для поездок в Хойан и Хюэ.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1583417267826-aebc4d1537e4?w=800&q=80',
+            title: 'Хошимин',
+            text: 'Бывший Сайгон — финансовый и культурный двигатель страны. Небоскрёбы рядом с пагодами, туннели Кучи, рынок Бен Тхань и ночная жизнь на улице Буй Вьен. Юг во всей своей энергии.'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80',
+            title: 'Острова Фукуок',
+            text: 'Жемчужный остров на юге с прозрачным морем, коралловыми рифами и закатами над Сиамским заливом. Развитая инфраструктура и при этом тихие пляжи — идеально для завершения поездки.'
+          }
+        ];
+
+        const img = document.getElementById('dest-img');
+        const title = document.getElementById('dest-title');
+        const text = document.getElementById('dest-text');
+
+        function setDestination(index) {
+          const d = destinations[index];
+          img.style.opacity = '0';
+          setTimeout(() => {
+            img.src = d.img;
+            img.alt = d.title;
+            title.textContent = d.title;
+            text.textContent = d.text;
+            img.style.opacity = '1';
+          }, 180);
+          document.querySelectorAll('.dest-item').forEach(el => el.classList.remove('active'));
+          document.querySelector(`.dest-item[data-index="${index}"]`).classList.add('active');
+        }
+
+        // инициализация
+        setDestination(0);
+
+        document.querySelectorAll('.dest-item').forEach(item => {
+          item.addEventListener('click', e => {
+            e.preventDefault();
+            setDestination(Number(item.dataset.index));
+          });
+        });
+      </script>
     </div>
   </section>
 
