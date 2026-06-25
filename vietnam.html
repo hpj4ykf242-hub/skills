@@ -768,6 +768,62 @@
       display: block;
     }
 
+    .video-thumb {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .video-play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .video-play-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(82, 102, 235, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .video-play-btn:hover .video-play-circle {
+      transform: scale(1.1);
+      background: var(--color-mercury-blue);
+    }
+
+    .video-play-circle svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+      margin-left: 4px;
+    }
+
+    .video-label {
+      position: absolute;
+      bottom: var(--spacing-24);
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      color: var(--color-silver);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: var(--spacing-16) var(--spacing-24); }
@@ -1040,12 +1096,25 @@
       </p>
     </div>
     <div class="video-wrapper">
-      <!-- Замените dQw4w9WgXcQ на ID любого YouTube-видео о Вьетнаме -->
-      <iframe
-        src="https://www.youtube.com/embed/k8m0SaGQ_1c?rel=0&modestbranding=1"
-        title="Вьетнам — путешествие"
-        allowfullscreen
-      ></iframe>
+      <img
+        class="video-thumb"
+        src="https://img.youtube.com/vi/k8m0SaGQ_1c/maxresdefault.jpg"
+        alt="Вьетнам — путешествие"
+      />
+      <a
+        class="video-play-btn"
+        href="https://www.youtube.com/watch?v=k8m0SaGQ_1c"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Смотреть видео на YouTube"
+      >
+        <div class="video-play-circle">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+      </a>
+      <span class="video-label">Смотреть на YouTube →</span>
     </div>
   </section>
 
