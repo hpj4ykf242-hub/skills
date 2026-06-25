@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вьетнам — Путешествие сквозь изумрудный мир</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+    :root {
+      --color-mercury-blue: #5266eb;
+      --color-ghost-blue: #cdddff;
+      --color-deep-space: #171721;
+      --color-midnight-slate: #1e1e2a;
+      --color-graphite: #272735;
+      --color-lead: #70707d;
+      --color-starlight: #ededf3;
+      --color-silver: #c3c3cc;
+      --color-pure-white: #ffffff;
+
+      --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+      --text-caption: 12px;
+      --text-body-sm: 14px;
+      --text-body: 16px;
+      --text-subheading: 18px;
+      --text-heading-sm: 21px;
+      --text-heading: 32px;
+      --text-heading-lg: 49px;
+      --text-display: 65px;
+
+      --spacing-4: 4px;
+      --spacing-8: 8px;
+      --spacing-12: 12px;
+      --spacing-16: 16px;
+      --spacing-20: 20px;
+      --spacing-24: 24px;
+      --spacing-32: 32px;
+      --spacing-40: 40px;
+      --spacing-56: 56px;
+      --spacing-72: 72px;
+      --spacing-80: 80px;
+      --spacing-112: 112px;
+      --spacing-128: 128px;
+
+      --radius-inputs: 32px;
+      --radius-buttons: 32px;
+      --radius-nav-button: 40px;
+      --radius-containers: 4px;
+      --radius-cards: 0px;
+
+      --page-max-width: 1200px;
+
+      --surface-abyss: #171721;
+      --surface-surface: #1e1e2a;
+      --surface-interactive: #272735;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--surface-abyss);
+      color: var(--color-starlight);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-20) var(--spacing-40);
+      background: rgba(23, 23, 33, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(112, 112, 125, 0.15);
+    }
+
+    .nav-logo {
+      font-size: var(--text-heading-sm);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      color: var(--color-starlight);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--color-mercury-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-32);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--color-starlight);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--color-starlight);
+      text-decoration: none;
+      background: rgba(205, 221, 255, 0.15);
+      border: none;
+      border-radius: var(--radius-nav-button);
+      padding: var(--spacing-8) var(--spacing-20);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: rgba(205, 221, 255, 0.25); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--spacing-40);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(23,23,33,0.4) 0%, rgba(23,23,33,0.15) 40%, rgba(23,23,33,0.7) 100%),
+        url('https://images.unsplash.com/photo-1528127269322-539801943592?w=1800&q=80') center/cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: var(--text-caption);
+      font-weight: 400;
+      letter-spacing: 0.24px;
+      color: var(--color-silver);
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-24);
+    }
+
+    .hero-title {
+      font-size: clamp(42px, 6vw, var(--text-display));
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+      color: var(--color-starlight);
+      margin-bottom: var(--spacing-24);
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-heading-sm);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-silver);
+      max-width: 560px;
+      margin: 0 auto var(--spacing-40);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .hero-input {
+      flex: 1;
+      background: rgba(30, 30, 42, 0.7);
+      border: 1px solid var(--color-lead);
+      border-right: none;
+      border-radius: var(--radius-inputs) 0 0 var(--radius-inputs);
+      padding: var(--spacing-16) var(--spacing-24);
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      color: var(--color-starlight);
+      outline: none;
+      transition: border-color 0.2s;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-input::placeholder { color: var(--color-lead); }
+    .hero-input:focus { border-color: var(--color-mercury-blue); }
+
+    .hero-btn {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      font-weight: 480;
+      color: var(--color-pure-white);
+      background: var(--color-mercury-blue);
+      border: none;
+      border-radius: 0 var(--radius-buttons) var(--radius-buttons) 0;
+      padding: var(--spacing-16) var(--spacing-24);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .hero-btn:hover { background: #6275f0; }
+    .hero-btn:active { transform: scale(0.98); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: var(--spacing-32);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-8);
+      color: var(--color-silver);
+      font-size: var(--text-caption);
+      letter-spacing: 0.24px;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--color-lead), transparent);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      background: var(--surface-surface);
+      padding: var(--spacing-112) var(--spacing-40);
+    }
+
+    .section-alt { background: var(--surface-abyss); }
+
+    .container {
+      max-width: var(--page-max-width);
+      margin: 0 auto;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-label {
+      font-size: var(--text-caption);
+      font-weight: 400;
+      letter-spacing: 0.24px;
+      color: var(--color-mercury-blue);
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-16);
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, var(--text-heading-lg));
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      color: var(--color-starlight);
+      margin-bottom: var(--spacing-24);
+    }
+
+    .section-desc {
+      font-size: var(--text-subheading);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-silver);
+      max-width: 560px;
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      background: var(--surface-abyss);
+      border-top: 1px solid rgba(112, 112, 125, 0.25);
+      border-bottom: 1px solid rgba(112, 112, 125, 0.25);
+      padding: var(--spacing-56) var(--spacing-40);
+    }
+
+    .stats-grid {
+      max-width: var(--page-max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-32);
+    }
+
+    .stat-item {
+      text-align: center;
+      border-right: 1px solid rgba(112, 112, 125, 0.2);
+      padding: 0 var(--spacing-32);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: clamp(32px, 3vw, var(--text-heading-lg));
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--color-starlight);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .stat-number span { color: var(--color-mercury-blue); }
+
+    .stat-label {
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      letter-spacing: 0.28px;
+      color: var(--color-silver);
+    }
+
+    /* ── DESTINATIONS FEATURE LIST ── */
+    .destinations-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-80);
+      align-items: start;
+      margin-top: var(--spacing-72);
+    }
+
+    .dest-list { list-style: none; }
+
+    .dest-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-24) 0;
+      border-bottom: 1px solid rgba(112, 112, 125, 0.3);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .dest-item:first-child { border-top: 1px solid rgba(112, 112, 125, 0.3); }
+
+    .dest-item:hover .dest-name { color: var(--color-starlight); }
+    .dest-item:hover .dest-arrow { color: var(--color-mercury-blue); transform: translateX(4px); }
+
+    .dest-info { flex: 1; }
+
+    .dest-name {
+      font-size: var(--text-heading-sm);
+      font-weight: 480;
+      line-height: 1.2;
+      color: var(--color-silver);
+      margin-bottom: var(--spacing-4);
+      transition: color 0.2s;
+    }
+
+    .dest-item.active .dest-name { color: var(--color-starlight); }
+
+    .dest-region {
+      font-size: var(--text-caption);
+      font-weight: 400;
+      letter-spacing: 0.24px;
+      color: var(--color-lead);
+      text-transform: uppercase;
+    }
+
+    .dest-arrow {
+      font-size: 20px;
+      color: var(--color-lead);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .dest-item.active .dest-arrow { color: var(--color-mercury-blue); }
+
+    .dest-preview {
+      position: sticky;
+      top: 120px;
+    }
+
+    .dest-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: var(--surface-interactive);
+    }
+
+    .dest-image-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--surface-interactive);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-lead);
+      font-size: var(--text-body-sm);
+    }
+
+    .dest-caption {
+      padding: var(--spacing-20) 0 0;
+    }
+
+    .dest-caption-title {
+      font-size: var(--text-heading);
+      font-weight: 360;
+      line-height: 1.2;
+      color: var(--color-starlight);
+      margin-bottom: var(--spacing-12);
+    }
+
+    .dest-caption-text {
+      font-size: var(--text-body);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-silver);
+    }
+
+    /* ── ROUTES SECTION ── */
+    .routes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: var(--spacing-72);
+      border: 1px solid rgba(112, 112, 125, 0.2);
+      background: rgba(112, 112, 125, 0.2);
+    }
+
+    .route-card {
+      background: var(--surface-abyss);
+      padding: var(--spacing-40);
+      transition: background 0.2s;
+    }
+
+    .route-card:hover { background: var(--surface-interactive); }
+
+    .route-days {
+      font-size: var(--text-caption);
+      font-weight: 400;
+      letter-spacing: 0.24px;
+      color: var(--color-mercury-blue);
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-16);
+    }
+
+    .route-name {
+      font-size: var(--text-heading-sm);
+      font-weight: 480;
+      line-height: 1.3;
+      color: var(--color-starlight);
+      margin-bottom: var(--spacing-16);
+    }
+
+    .route-desc {
+      font-size: var(--text-body);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-silver);
+      margin-bottom: var(--spacing-32);
+    }
+
+    .route-stops {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-8);
+    }
+
+    .route-stop {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-12);
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      color: var(--color-silver);
+    }
+
+    .route-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-lead);
+      flex-shrink: 0;
+    }
+
+    .route-cta {
+      display: inline-block;
+      margin-top: var(--spacing-32);
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      color: var(--color-mercury-blue);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .route-cta:hover { border-color: var(--color-mercury-blue); }
+
+    /* ── TIPS SECTION ── */
+    .tips-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-80);
+      margin-top: var(--spacing-72);
+    }
+
+    .tip-group-title {
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      letter-spacing: 0.28px;
+      color: var(--color-mercury-blue);
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-24);
+    }
+
+    .tip-list { list-style: none; }
+
+    .tip-item {
+      padding: var(--spacing-20) 0;
+      border-bottom: 1px solid rgba(112, 112, 125, 0.25);
+    }
+
+    .tip-item:first-child { border-top: 1px solid rgba(112, 112, 125, 0.25); }
+
+    .tip-question {
+      font-size: var(--text-body);
+      font-weight: 480;
+      color: var(--color-starlight);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .tip-answer {
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-silver);
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-section {
+      background: var(--surface-surface);
+      padding: var(--spacing-128) var(--spacing-40);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: clamp(32px, 4vw, var(--text-heading-lg));
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      color: var(--color-starlight);
+      max-width: 640px;
+      margin: 0 auto var(--spacing-24);
+    }
+
+    .cta-sub {
+      font-size: var(--text-subheading);
+      font-weight: 400;
+      color: var(--color-silver);
+      max-width: 480px;
+      margin: 0 auto var(--spacing-40);
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      font-weight: 480;
+      color: var(--color-pure-white);
+      background: var(--color-mercury-blue);
+      border: none;
+      border-radius: var(--radius-buttons);
+      padding: var(--spacing-16) var(--spacing-32);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-primary:hover { background: #6275f0; }
+    .btn-primary:active { transform: scale(0.98); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface-abyss);
+      border-top: 1px solid rgba(112, 112, 125, 0.2);
+      padding: var(--spacing-72) var(--spacing-40) var(--spacing-40);
+    }
+
+    .footer-inner {
+      max-width: var(--page-max-width);
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--spacing-56);
+      padding-bottom: var(--spacing-56);
+      border-bottom: 1px solid rgba(112, 112, 125, 0.2);
+    }
+
+    .footer-brand {
+      font-size: var(--text-heading-sm);
+      font-weight: 300;
+      color: var(--color-starlight);
+      margin-bottom: var(--spacing-16);
+    }
+
+    .footer-brand span { color: var(--color-mercury-blue); }
+
+    .footer-tagline {
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-silver);
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: var(--text-body-sm);
+      font-weight: 480;
+      letter-spacing: 0.28px;
+      color: var(--color-starlight);
+      margin-bottom: var(--spacing-20);
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: var(--spacing-12); }
+
+    .footer-links a {
+      font-size: var(--text-body-sm);
+      font-weight: 400;
+      color: var(--color-silver);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--color-starlight); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--spacing-32);
+    }
+
+    .footer-copy {
+      font-size: var(--text-caption);
+      font-weight: 400;
+      letter-spacing: 0.24px;
+      color: var(--color-lead);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: var(--spacing-24);
+      list-style: none;
+    }
+
+    .footer-legal a {
+      font-size: var(--text-caption);
+      font-weight: 400;
+      color: var(--color-lead);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover { color: var(--color-silver); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: var(--spacing-16) var(--spacing-24); }
+      .nav-links { display: none; }
+      .section { padding: var(--spacing-80) var(--spacing-24); }
+      .destinations-layout { grid-template-columns: 1fr; }
+      .dest-preview { display: none; }
+      .routes-grid { grid-template-columns: 1fr; }
+      .tips-layout { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: var(--spacing-40); }
+      .footer-bottom { flex-direction: column; gap: var(--spacing-16); text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-cta-group { flex-direction: column; }
+      .hero-input {
+        border-radius: var(--radius-inputs);
+        border-right: 1px solid var(--color-lead);
+        width: 100%;
+      }
+      .hero-btn { border-radius: var(--radius-buttons); width: 100%; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(112,112,125,0.2); padding-bottom: var(--spacing-24); }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="nav-logo">Việt<span>Nam</span></a>
+    <ul class="nav-links">
+      <li><a href="#destinations">Направления</a></li>
+      <li><a href="#routes">Маршруты</a></li>
+      <li><a href="#tips">Советы</a></li>
+      <li><a href="#about">О стране</a></li>
+    </ul>
+    <a href="#hero-email" class="nav-cta">Начать путешествие</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-label">Юго-Восточная Азия · 2025</span>
+      <h1 class="hero-title">Открой Вьетнам<br>во всей красоте</h1>
+      <p class="hero-subtitle">
+        От рисовых террас Шапа до бухты Халонг — тысячи километров
+        живой истории, вкусов и пейзажей, которые меняют навсегда.
+      </p>
+      <div class="hero-cta-group">
+        <input
+          id="hero-email"
+          class="hero-input"
+          type="email"
+          placeholder="Ваш email для гида путешественника"
+        />
+        <button class="hero-btn">Получить гид</button>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Прокрутить
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">1<span>,</span>650<span>km</span></div>
+        <div class="stat-label">С севера на юг</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">63</div>
+        <div class="stat-label">Провинций и городов</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Объектов ЮНЕСКО</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3<span>,</span>000+</div>
+        <div class="stat-label">Островов в море</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTINATIONS -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <div class="section-label">Направления</div>
+      <h2 class="section-title">Куда поехать<br>во Вьетнаме</h2>
+      <p class="section-desc">
+        Каждый регион — отдельный мир. Выберите свой ритм: горный север,
+        исторический центр или тропический юг.
+      </p>
+
+      <div class="destinations-layout">
+        <ul class="dest-list">
+          <li>
+            <a href="#" class="dest-item active">
+              <div class="dest-info">
+                <div class="dest-name">Бухта Халонг</div>
+                <div class="dest-region">Север · Провинция Куангнинь</div>
+              </div>
+              <span class="dest-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="dest-item">
+              <div class="dest-info">
+                <div class="dest-name">Ханой</div>
+                <div class="dest-region">Север · Столица</div>
+              </div>
+              <span class="dest-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="dest-item">
+              <div class="dest-info">
+                <div class="dest-name">Шапа</div>
+                <div class="dest-region">Север · Провинция Лаокай</div>
+              </div>
+              <span class="dest-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="dest-item">
+              <div class="dest-info">
+                <div class="dest-name">Хойан</div>
+                <div class="dest-region">Центр · Провинция Куангнам</div>
+              </div>
+              <span class="dest-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="dest-item">
+              <div class="dest-info">
+                <div class="dest-name">Дананг</div>
+                <div class="dest-region">Центр · Независимый муниципалитет</div>
+              </div>
+              <span class="dest-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="dest-item">
+              <div class="dest-info">
+                <div class="dest-name">Хошимин</div>
+                <div class="dest-region">Юг · Финансовый центр</div>
+              </div>
+              <span class="dest-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="dest-item">
+              <div class="dest-info">
+                <div class="dest-name">Острова Фукуок</div>
+                <div class="dest-region">Юг · Провинция Кьенжанг</div>
+              </div>
+              <span class="dest-arrow">→</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="dest-preview">
+          <img
+            class="dest-image"
+            src="https://images.unsplash.com/photo-1573408301185-9519f94815a8?w=800&q=80"
+            alt="Бухта Халонг"
+          />
+          <div class="dest-caption">
+            <div class="dest-caption-title">Бухта Халонг</div>
+            <p class="dest-caption-text">
+              Около 1 600 известняковых островов и островков поднимаются
+              из изумрудных вод — объект Всемирного наследия ЮНЕСКО
+              и один из самых узнаваемых пейзажей Азии. Лучшее время
+              для визита: октябрь–апрель.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROUTES -->
+  <section class="section section-alt" id="routes">
+    <div class="container">
+      <div class="section-label">Маршруты</div>
+      <h2 class="section-title">Готовые маршруты<br>по длительности</h2>
+      <p class="section-desc">
+        Подобрали оптимальные пути — без суеты, с временем на то,
+        что действительно важно.
+      </p>
+
+      <div class="routes-grid">
+        <div class="route-card">
+          <div class="route-days">7 дней</div>
+          <div class="route-name">Главные хиты<br>страны</div>
+          <p class="route-desc">
+            Идеально для первого визита. Охватывает три ключевые точки
+            — север, центр, юг — с перелётами между регионами.
+          </p>
+          <ul class="route-stops">
+            <li class="route-stop"><span class="route-dot"></span>Ханой (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Бухта Халонг (1 день)</li>
+            <li class="route-stop"><span class="route-dot"></span>Хойан (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Хошимин (2 дня)</li>
+          </ul>
+          <a href="#" class="route-cta">Полный маршрут →</a>
+        </div>
+        <div class="route-card">
+          <div class="route-days">14 дней</div>
+          <div class="route-name">Путь с севера<br>на юг</div>
+          <p class="route-desc">
+            Классическое погружение: горы Шапа, исторические города
+            и острова с лазурной водой — в неспешном темпе.
+          </p>
+          <ul class="route-stops">
+            <li class="route-stop"><span class="route-dot"></span>Шапа (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Ханой (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Нинь Бинь (1 день)</li>
+            <li class="route-stop"><span class="route-dot"></span>Хюэ (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Хойан (3 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Хошимин (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Дельта Меконга (2 дня)</li>
+          </ul>
+          <a href="#" class="route-cta">Полный маршрут →</a>
+        </div>
+        <div class="route-card">
+          <div class="route-days">21+ день</div>
+          <div class="route-name">Глубокое<br>погружение</div>
+          <p class="route-desc">
+            Для тех, кто хочет понять страну изнутри: нацпарки,
+            деревни этнических меньшинств и скрытые пляжи.
+          </p>
+          <ul class="route-stops">
+            <li class="route-stop"><span class="route-dot"></span>Ha Giang Loop (4 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Ханой (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Нацпарк Фонгня-Кебанг (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Хюэ (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Хойан (3 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Хошимин (2 дня)</li>
+            <li class="route-stop"><span class="route-dot"></span>Фукуок (5 дней)</li>
+          </ul>
+          <a href="#" class="route-cta">Полный маршрут →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section class="section" id="tips">
+    <div class="container">
+      <div class="section-label">Практика</div>
+      <h2 class="section-title">Всё, что важно<br>знать перед поездкой</h2>
+      <p class="section-desc">
+        Честные ответы на самые частые вопросы — без рекламных клише.
+      </p>
+
+      <div class="tips-layout">
+        <div>
+          <div class="tip-group-title">Логистика</div>
+          <ul class="tip-list">
+            <li class="tip-item">
+              <div class="tip-question">Нужна ли виза?</div>
+              <div class="tip-answer">Граждане России могут въезжать без визы на 15 дней. Для более долгих поездок оформляйте e-Visa онлайн — стоит $25, выдаётся за 3 рабочих дня и позволяет находиться 90 дней.</div>
+            </li>
+            <li class="tip-item">
+              <div class="tip-question">Как лучше передвигаться по стране?</div>
+              <div class="tip-answer">Между городами — скоростные поезда (Hanoi–Da Nang за 4 ч.) или бюджетные авиарейсы VietJet. Внутри городов — Grab (местный аналог Uber). По горам — мотобайк или джип-тур.</div>
+            </li>
+            <li class="tip-item">
+              <div class="tip-question">Когда лучше ехать?</div>
+              <div class="tip-answer">У Вьетнама нет единого «лучшего сезона» — климат разный для севера и юга. Ноябрь–апрель идеален для центра и юга. Май–сентябрь — лучшее время для севера (Шапа в зелени).</div>
+            </li>
+            <li class="tip-item">
+              <div class="tip-question">Сим-карта или роуминг?</div>
+              <div class="tip-answer">Купите местную сим-карту прямо в аэропорту (Viettel или Vinaphone). Безлимитный 4G на месяц — около 200 000 VND (~$8). Роуминг в разы дороже.</div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="tip-group-title">Бюджет и быт</div>
+          <ul class="tip-list">
+            <li class="tip-item">
+              <div class="tip-question">Сколько стоит путешествие в день?</div>
+              <div class="tip-answer">Бюджетный трэвел: $30–40/день (хостел, уличная еда, местный транспорт). Комфорт: $60–100/день (3★ отель, рестораны, такси). Премиум: $150+/день.</div>
+            </li>
+            <li class="tip-item">
+              <div class="tip-question">Что есть обязательно?</div>
+              <div class="tip-answer">Фо бо (суп с говядиной), Бань ми (сэндвич), Ком там (рис с гриль-свининой), Бун бо Хюэ (острый суп), Cao Lau (только в Хойане), свежие роллы Гой Куон.</div>
+            </li>
+            <li class="tip-item">
+              <div class="tip-question">Безопасен ли Вьетнам?</div>
+              <div class="tip-answer">Один из самых безопасных направлений Азии для одиноких путешественников. Основные риски — уличные кражи в туристических зонах и дорожное движение. Соблюдайте осторожность на дороге.</div>
+            </li>
+            <li class="tip-item">
+              <div class="tip-question">Какую валюту брать?</div>
+              <div class="tip-answer">Расплачивайтесь вьетнамскими донгами (VND). Снимайте в банкоматах Vietcombank или Techcombank — минимальная комиссия. Доллары принимают лишь в туристических точках и по невыгодному курсу.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Ваш Вьетнам начинается с первого шага</h2>
+      <p class="cta-sub">Получите бесплатный персональный маршрут под ваш бюджет и даты поездки.</p>
+      <a href="#hero-email" class="btn-primary">Составить маршрут</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Việt<span>Nam</span></div>
+          <p class="footer-tagline">
+            Независимый путеводитель по Вьетнаму для вдумчивых путешественников.
+            Без рекламы и партнёрских ссылок.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Направления</div>
+          <ul class="footer-links">
+            <li><a href="#">Ханой</a></li>
+            <li><a href="#">Хошимин</a></li>
+            <li><a href="#">Хойан</a></li>
+            <li><a href="#">Бухта Халонг</a></li>
+            <li><a href="#">Фукуок</a></li>
+            <li><a href="#">Шапа</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Маршруты</div>
+          <ul class="footer-links">
+            <li><a href="#">7 дней</a></li>
+            <li><a href="#">14 дней</a></li>
+            <li><a href="#">21+ дней</a></li>
+            <li><a href="#">Семейные туры</a></li>
+            <li><a href="#">Медовый месяц</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Ресурсы</div>
+          <ul class="footer-links">
+            <li><a href="#">Советы по виза</a></li>
+            <li><a href="#">Бюджет поездки</a></li>
+            <li><a href="#">Гастро-гид</a></li>
+            <li><a href="#">Календарь климата</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2025 ВьетНам Путеводитель. Все права защищены.</span>
+        <ul class="footer-legal">
+          <li><a href="#">Политика конфиденциальности</a></li>
+          <li><a href="#">Условия использования</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
