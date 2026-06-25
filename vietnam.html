@@ -685,6 +685,60 @@
 
     .footer-legal a:hover { color: var(--color-silver); }
 
+    /* ── SAPA SECTION ── */
+    .sapa-section {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--spacing-128) var(--spacing-40);
+      overflow: hidden;
+    }
+
+    .sapa-bg {
+      position: absolute;
+      inset: 0;
+      /* Замените URL на путь к своему фото: url('sapa.jpg') */
+      background:
+        linear-gradient(to bottom, rgba(23,23,33,0.55) 0%, rgba(23,23,33,0.3) 50%, rgba(23,23,33,0.75) 100%),
+        url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1800&q=80') center/cover no-repeat;
+    }
+
+    .sapa-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .sapa-tag {
+      display: inline-block;
+      font-size: var(--text-caption);
+      font-weight: 400;
+      letter-spacing: 0.24px;
+      color: var(--color-silver);
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-20);
+    }
+
+    .sapa-title {
+      font-size: clamp(32px, 5vw, var(--text-heading-lg));
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      color: var(--color-starlight);
+      margin-bottom: var(--spacing-20);
+    }
+
+    .sapa-desc {
+      font-size: var(--text-subheading);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-silver);
+      margin-bottom: var(--spacing-40);
+    }
+
     /* ── VIDEO SECTION ── */
     .video-section {
       background: var(--surface-abyss);
@@ -898,6 +952,20 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- SAPA -->
+  <section class="sapa-section">
+    <div class="sapa-bg"></div>
+    <div class="sapa-content">
+      <span class="sapa-tag">Север Вьетнама · 1500 м над уровнем моря</span>
+      <h2 class="sapa-title">Шапа — там, где<br>земля касается неба</h2>
+      <p class="sapa-desc">
+        Бесконечные рисовые террасы, деревни народностей хмонг и зао,
+        туман над долинами по утрам. Место, которое остаётся в сердце навсегда.
+      </p>
+      <a href="#routes" class="btn-primary">Маршруты в Шапа</a>
     </div>
   </section>
 
